@@ -40,13 +40,15 @@ def encrypt(msg):
             elif bin_seq[i] == 0:
                 t = 2*t
         return t
-
+    enc = []
     for i in range(len(ascii_lst)):
-        e = collatz_sequence(ascii_lst[i])
-        print(e)
-        print("\n")
-        print(chr(decrypt(e)))
-
+        enc.append(collatz_sequence(ascii_lst[i]))
+    print(enc)
+    dec = []
+    for i in enc:
+        dec.append(chr(decrypt(i)))
+    print('Decrypted Text : ',end='')
+    print(''.join(map(lambda x:str(x),dec)))
 
 
 msg=input("Enter message:")
